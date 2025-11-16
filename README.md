@@ -99,4 +99,31 @@ All plots were created using `matplotlib` and `seaborn` and appear inline in `pr
 
 ---
 
-## 🗂️ Repository Structure
+## Repository Structure
+coupon-acceptance-eda/
+├── data/
+│ └── coupons.csv
+├── images/
+│ └── (optional plots)
+├── prompt.ipynb # main Jupyter notebook with analysis
+└── README.md # project overview
+
+## How to Run
+1. Clone this repository  
+   ```bash
+   git clone https://github.com/<your-username>/coupon-acceptance-eda.git
+   cd coupon-acceptance-eda
+2. Install dependencies if needed
+   pip install pandas numpy matplotlib seaborn
+3. Launch Jupyter Notebook
+   jupyter notebook prompt.ipynb
+4. Run all cells sequentially
+
+## License
+This project is for educational purposes as part of UC Berkeley’s ML/AI Professional Program.
+Dataset © UCI Machine Learning Repository.
+## Author
+Soumyamol Vijayamma Surendran
+UC Berkeley ML/AI Program – Practical Application 1
+📧 [ writetosoumya@gmail.com)]
+🌐 https://github.com/<writetosoumya>
