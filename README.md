@@ -1,129 +1,59 @@
-# amazon_coupon_acceptance_eda
-To analyze and predict the coupon acceptance pattern and behavior of Amazon delivery drivers. 
-# Coupon Acceptance EDA
+# Coupon Acceptance – Nontechnical Summary
 
-### Practical Application 1 – Machine Learning Fundamentals (UC Berkeley ML/AI Program)
-
-This project explores **customer behavior in accepting driving coupons** based on contextual factors like weather, passenger type, time of day, and destination.  
-It applies **Exploratory Data Analysis (EDA)**, statistical summarization, and data visualization techniques using Python (Pandas, Matplotlib, and Seaborn).
+This project explores how customer and situational factors influence whether drivers accept or reject driving coupons.  
+The analysis used survey data from the UCI Machine Learning Repository, which describes drivers’ destinations, passengers, weather, and other trip conditions.
 
 ---
 
-## Objective
-To answer the question:  
-> “Will a customer accept the coupon?”
+## Key Differences Between Customers Who Accepted and Did Not Accept Coupons
 
-By analyzing 12,000+ survey responses from the UCI Machine Learning Repository, this project identifies behavioral patterns and actionable insights that influence coupon acceptance.
-
----
-
-## Dataset
-- **Source:** [UCI Machine Learning Repository – In-Vehicle Coupon Recommendation](https://archive.ics.uci.edu/ml/datasets/in-vehicle+coupon+recommendation)
-- **Size:** ~12,684 records  
-- **Target Variable:** `Y` (1 = accepted, 0 = rejected)  
-- **Coupon Types:**
-  - Bar  
-  - Coffee House  
-  - Carry-out & Take-away  
-  - Restaurant (< $20)  
-  - Restaurant ($20–$50)
+### Overall
+- About **57%** of all coupons were accepted.
+- Acceptance rates varied strongly by **coupon type**, **time of day**, **passenger**, and **income level**.
 
 ---
 
-## Tools & Libraries
-- **Language:** Python 3  
-- **Libraries:**  
-  - `pandas` – data cleaning & summarization  
-  - `numpy` – numeric analysis  
-  - `matplotlib` & `seaborn` – data visualization  
-  - `scipy` – probability & distribution analysis  
-
-## Analyses Performed
-
-### 1. Exploratory Data Analysis (EDA)
-- Loaded, inspected, and cleaned the dataset  
-- Converted categorical data into meaningful numeric groups  
-- Analyzed distribution of `temperature`, `weather`, `time`, and `destination`  
-
-### 2. Coupon-Specific Investigations
-#### Bar Coupons
-- Acceptance higher for adults (age > 25) who visit bars > 1–3 times/month  
-- Social context (no kids, not widowed) strongly increases acceptance  
-- Lifestyle segmentation showed highest acceptance among socially active groups
-
-####  Coffee House Coupons
-- Acceptance peaks between **10 AM – 2 PM**, especially with **friends or partners**  
-- Insight: Works best as a mid-day, social offer
-
-####  Restaurant (< $20) Coupons
-- Highest acceptance among **lower-income** drivers (< $50K)  
-- Frequent diners (4+ visits/month) most responsive  
-- Insight: Impulse and budget-friendly coupon type
-
-#### Carry-Out & Take-Away Coupons
-- Acceptance highest on **sunny days** and around **lunch hours (10 AM–2 PM)**  
-- Insight: Works when people are already out and hungry
-
-#### Restaurant ($20–$50) Coupons
-- **Longer expiration (1 day)** drives higher acceptance than 2 h coupons  
-- **“No Urgent Place”** destinations show higher conversion  
-- Insight: Planned dining behavior needs flexible timing
+### Bar Coupons
+- **Accepted by:** Adults over 25 who visit bars more than once per month and drive with friends or partners.  
+- **Not accepted by:** Drivers with children or those who rarely visit bars.
 
 ---
 
-## Visualizations
-- Histograms for continuous variables (`temperature`, `age`)  
-- Bar charts for categorical features (`coupon`, `time`, `weather`, `destination`)  
-- Comparative plots for acceptance rates across coupon categories  
-
-All plots were created using `matplotlib` and `seaborn` and appear inline in `prompt.ipynb`.
+### Coffee House Coupons
+- **Accepted by:** Drivers traveling **mid-morning to early afternoon** with **friends or partners**.  
+- **Not accepted by:** Drivers alone or during late evenings.
 
 ---
 
-## Key Insights
-| Factor | Behavior |
-|--------|-----------|
-| **Time of day** | Morning–afternoon (10 AM–2 PM) increases acceptance |
-| **Passenger** | Friends/partners raise acceptance; kids lower it |
-| **Weather** | Sunny days slightly increase response rates |
-| **Income** | Lower-income groups favor low-cost coupons |
-| **Expiration** | Longer (1 day) benefits planned spending |
+### Restaurant (< $20) Coupons
+- **Accepted by:** Lower-income drivers (< $50K) and those who **eat out frequently** (4+ times per month).  
+- **Not accepted by:** High-income drivers or infrequent diners.
 
 ---
 
-##  Recommendations
-1. **Target context, not just demographics:** Match coupon type to time, passenger, and trip purpose.  
-2. **Push short-term coupons** (coffee/carry-out) during active daytime hours.  
-3. **Use longer expiration** for planned, higher-value coupons (restaurants $20–$50).  
-4. **Segment customers** by lifestyle frequency (e.g., bar visits, dining frequency).  
+### Carry-Out & Take-Away Coupons
+- **Accepted by:** Drivers on **sunny days** and **around lunchtime (10 AM–2 PM)**.  
+- **Not accepted by:** Late-night drivers or during bad weather.
 
 ---
 
-## Repository Structure
-coupon-acceptance-eda/
-├── data/
-│ └── coupons.csv
-├── images/
-│ └── (optional plots)
-├── prompt.ipynb # main Jupyter notebook with analysis
-└── README.md # project overview
+### Restaurant ($20–$50) Coupons
+- **Accepted by:** Drivers with **no urgent destination** and coupons that **expire in one day**.  
+- **Not accepted by:** Drivers with short trips or limited time (2-hour expiration).
 
-## How to Run
-1. Clone this repository  
-   ```bash
-   git clone https://github.com/<your-username>/coupon-acceptance-eda.git
-   cd coupon-acceptance-eda
-2. Install dependencies if needed
-   pip install pandas numpy matplotlib seaborn
-3. Launch Jupyter Notebook
-   jupyter notebook prompt.ipynb
-4. Run all cells sequentially
+---
 
-## License
-This project is for educational purposes as part of UC Berkeley’s ML/AI Professional Program.
-Dataset © UCI Machine Learning Repository.
-## Author
-Soumyamol Vijayamma Surendran
-UC Berkeley ML/AI Program – Practical Application 1
-📧 [ writetosoumya@gmail.com)]
-🌐 https://github.com/<writetosoumya>
+## Summary Insight
+Drivers who accept coupons tend to:
+- Be **social** (with companions rather than alone).  
+- Have **flexible time or no strict destination**.  
+- Prefer coupons that **match their lifestyle habits** (e.g., frequent bar or coffee visitors).  
+- Respond more positively when the **coupon timing and value fit their context**.
+
+In contrast, those who reject coupons are often **time-constrained**, **alone**, or **not regular customers** of the offered venue type.
+
+---
+
+**Author:** Soumyamol Vijayamma Surendran   
+**Course:** UC Berkeley Machine Learning / AI Professional Program  
+**Assignment:** Practical Application 1 – Exploratory Data Analysis, Module :05
